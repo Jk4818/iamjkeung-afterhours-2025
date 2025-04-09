@@ -12,7 +12,7 @@ export default function OfferPage({ }: Props) {
             <div className='max-h-2/5 h-full flex justify-between w-full mt-4 lg:mt-0 '>
                 <div className='flex w-full h-max '>
                     <motion.h1
-                        className='pr-2 text-4xl lg:text-6xl font-bold text-background'
+                        className='pr-2 text-4xl lg:text-7xl font-bold text-background'
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2, duration: 0.5 }}
@@ -25,7 +25,7 @@ export default function OfferPage({ }: Props) {
                 </div>
 
                 <motion.p
-                    className='max-w-100 text-sm lg:text-base text-right text-background'
+                    className='max-w-130 text-sm lg:text-base text-right text-background font-medium'
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4, duration: 0.5 }}

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import localFont from 'next/font/local';
+import { Archivo, Geist_Mono } from "next/font/google";
+import { laoMN, pingfang } from "@/fonts";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const archivo = Archivo({
+  variable: "--font-rchivo-sans",
   subsets: ["latin"],
 });
 
@@ -13,19 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const laoMN = localFont({
-  src: [
-    {
-      path: 'fonts/lao-mn.ttf',
-      weight: '400'
-    },
-    {
-      path: 'fonts/lao-mn-bold.ttf',
-      weight: '700'
-    }
-  ],
-  variable: '--font-laomn'
-})
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -40,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${laoMN.variable} antialiased`}
+        className={`${archivo.variable} ${geistMono.variable} ${laoMN.variable} ${pingfang.variable} antialiased`}
       >
         {children}
       </body>

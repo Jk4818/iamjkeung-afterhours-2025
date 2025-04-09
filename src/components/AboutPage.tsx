@@ -30,13 +30,13 @@ export default function AboutPage({}: Props) {
   return (
     <div className='bg-foreground w-full min-h-screen p-4 lg:p-10 flex flex-row justify-center items-center text-background'>
       <motion.section 
-                className="min-h-screen flex flex-col justify-between relative">
+                className="min-h-screen flex flex-col justify-between   relative">
                 {/* Main content with sticky positioning */}
                 <div className="sticky top-0">
 
                     <motion.div
                         id='initial-about'
-                        className="max-w-full text-xl sm:text-2xl lg:text-5xl font-normal leading-snug uppercase tracking-[1rem]"
+                        className="max-w-full text-xl sm:text-2xl lg:text-4xl font-normal leading-snug uppercase tracking-[1rem]"
                         initial={{ opacity: 1 }}
                         animate={{ opacity: 1 }}
                     >
@@ -48,7 +48,7 @@ export default function AboutPage({}: Props) {
                 </div>
 
                 {/* Spacer div to create scrollable area */}
-                <div style={{ height: '100vh' }}></div>
+                <div style={{ height: '200vh' }}></div>
             </motion.section>
     </div>
   )

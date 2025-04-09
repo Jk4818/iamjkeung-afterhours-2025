@@ -15,12 +15,16 @@ export default function GettingStarted({ }: Props) {
                     <h4 className='font-black'>Want to perform with us?</h4>
                 </div>
             </div>
-            <div className='flex bg-red-300'>
-                <h1>
-                    Get Started
-                </h1>
-                <h2>.</h2>
-            </div>
+            <div className='flex w-3/4 h-full items-end justify-end font-serif text-foreground'>
+                    <h1
+                        className='pr-2 text-4xl md:text-7xl xl:text-9xl font-bold'
+                    >
+                        get started
+                    </h1>
+                    <div className='h-max self-end md:mb-4 xl:mb-8'>
+                        <div className={`dot w-6 h-6 rounded-full  bg-foreground`}></div>
+                    </div>
+                </div>
         </div>
     )
 }
