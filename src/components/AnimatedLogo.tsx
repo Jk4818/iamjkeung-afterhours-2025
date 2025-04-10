@@ -61,8 +61,8 @@ const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ className = "" }) => {
   const secondLineDelays = getRandomizedDelays(secondLineChars.length);
 
   return (
-    <div className={`uppercase text-foreground ${className}`}>
-      <h1 className="font-serif text-3xl tracking-[1rem]">
+    <div className={`w-full uppercase text-foreground ${className}`}>
+      <h1 className="font-serif text-2xl sm:text-3xl tracking-[1rem]">
         {firstLineChars.map((char, index) => (
           <motion.span
             key={`first-${index}`}
@@ -76,7 +76,7 @@ const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ className = "" }) => {
           </motion.span>
         ))}
       </h1>
-      <h2 className="text-center font-pingfang font-bold text-lg tracking-[0.3rem]">
+      <h2 className="text-center font-pingfang font-bold text-md sm:text-lg tracking-[0.3rem]">
         {secondLineChars.map((char, index) => (
           <motion.span
             key={`second-${index}`}

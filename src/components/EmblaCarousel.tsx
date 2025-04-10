@@ -128,8 +128,8 @@ const EmblaCarousel: React.FC = () => {
                                     <div>
                                         <div className={`dot w-8 h-8 rounded-full mb-4 ${card.dotColor}`}></div>
                                     </div>
-                                    <div className='w-full h-3/4 '>
-                                        <h2 className={`font-serif font-bold text-xl md:text-5xl ${card.color === "bg-foreground" ? "text-background" : "text-foreground"}`}>{card.title}</h2>
+                                    <div className='w-full h-1/2 lg:h-3/4 '>
+                                        <h2 className={`font-serif font-bold text-xl lg:text-5xl ${card.color === "bg-foreground" ? "text-background" : "text-foreground"}`}>{card.title}</h2>
                                     </div>
                                     <div className='w-full h-full  '>
                                         <p className={` text-lg md:text-xl ${card.color === "bg-foreground" ? "text-background" : "text-foreground"}`}>

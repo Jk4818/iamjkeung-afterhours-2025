@@ -76,7 +76,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, scrollYProgress }) =>
     }, [characters, text]);
 
     return (
-        <p className="indent-8 md:indent-16 text-left font-normal leading-relaxed uppercase tracking-wider md:tracking-[0.8rem] w-full text-xl sm:text-2xl lg:text-3xl xl:text-4xl">
+        <p className="indent-8 md:indent-16 text-left font-normal leading-relaxed uppercase tracking-wider md:tracking-[0.8rem] w-full text-lg sm:text-2xl lg:text-3xl xl:text-4xl">
             {words.map((wordChars, wordIndex) => (
                 <React.Fragment key={`word-${wordIndex}`}>
                     {wordChars.map((charData) => (
