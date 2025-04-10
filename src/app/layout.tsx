@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react"
 import { Archivo, Geist_Mono } from "next/font/google";
 import { laoMN, pingfang } from "@/fonts";
 import "./globals.css";
@@ -36,6 +37,7 @@ export default function RootLayout({
       >
         <Suspense fallback={<Loading />}>{children}</Suspense>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
