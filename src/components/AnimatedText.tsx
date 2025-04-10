@@ -17,7 +17,7 @@ const useColorTransform = (scrollYProgress: MotionValue<number>, threshold: numb
     return useTransform(
         scrollYProgress,
         [scaledThreshold, scaledThreshold + 0.02],
-        ["#FFFFFF", "#1E1E1E"]
+        ["#F9C5D1", "#2D325B "]
     );
 };
 
