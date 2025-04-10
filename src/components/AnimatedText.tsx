@@ -1,17 +1,22 @@
-// src/components/AnimatedText.tsx
 import React, { useMemo } from "react";
 import { motion, MotionValue, useTransform } from "framer-motion";
 
 interface AnimatedTextProps {
     text: string;
     scrollYProgress: MotionValue<number>;
+    viewportHeight?: number;
 }
 
-// A custom hook that creates a single transform for a specific threshold
+// Modified to account for the delayed start of animation
+// Adjust the input range to start animation when scroll begins
 const useColorTransform = (scrollYProgress: MotionValue<number>, threshold: number) => {
+    // Scale the threshold to the animation window
+    // This ensures all animations happen between 0.1 and 0.7 of scroll progress
+    const scaledThreshold = 0.25 + threshold * 0.8;
+    
     return useTransform(
         scrollYProgress,
-        [threshold, threshold + 0.02],
+        [scaledThreshold, scaledThreshold + 0.02],
         ["#FFFFFF", "#1E1E1E"]
     );
 };
@@ -71,7 +76,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, scrollYProgress }) =>
     }, [characters, text]);
 
     return (
-        <p className="indent-8 md:indent-18 text-left">
+        <p className="indent-8 md:indent-16 text-left font-normal leading-relaxed uppercase tracking-wider md:tracking-[0.8rem] w-full text-xl sm:text-2xl lg:text-3xl xl:text-4xl">
             {words.map((wordChars, wordIndex) => (
                 <React.Fragment key={`word-${wordIndex}`}>
                     {wordChars.map((charData) => (
