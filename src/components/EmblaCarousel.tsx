@@ -63,9 +63,9 @@ const cardData: CardType[] = [
         color: "bg-main-red",
         dotColor: "bg-foreground"
     },{
-        title: "Cinematic Coverage",
+        title: "Performance Visuals",
         subtitle: "",
-        description: "Your performance is captured through a refined, multi-angle approach that highlights tone, texture, and emotion—crafted for both intimacy and impact.",
+        description: "Your performance is captured with cinematography in mind. Every shot is designed to feel honest, immersive, and true to your sound.",
         color: "bg-main-blue",
         dotColor: "bg-foreground"
     },
