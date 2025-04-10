@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 
 type AnimatedLogoProps = {
   className?: string;
@@ -13,23 +13,41 @@ const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ className = "" }) => {
   // Create arrays of characters for each line
   const firstLineChars = firstLine.split("");
   const secondLineChars = secondLine.split("");
-
+  
+  // Ref for the whole logo container
+  const logoRef = useRef(null);
+  
+  // Check if logo is in viewport
+  const isLogoInView = useInView(logoRef, { once: false, amount: 0.5 });
+  
+  // Animation controls for both lines
+  const firstLineControls = useAnimation();
+  const secondLineControls = useAnimation();
+  
   // Animation duration constants
-  const totalDuration = 6; // total animation duration in seconds
-  const avgCharDuration = 1; // average duration for each character animation
+  const totalDuration = 3; // total animation duration in seconds
+  const avgCharDuration = 0.5; // average duration for each character animation
   
   // Animation variants for characters
   const charVariants = {
     hidden: { opacity: 0, scale: 0.9 },
-    visible: (i: number) => ({
+    visible: (delay: number) => ({
       opacity: 1,
       scale: 1,
       transition: {
-        delay: i * 1, // staggered delay between characters
+        delay,
         duration: avgCharDuration,
         ease: "easeInOut",
       },
     }),
+    exit: {
+      opacity: 0,
+      scale: 0.9,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+      },
+    },
   };
 
   // Shuffle the order in which characters appear
@@ -56,20 +74,44 @@ const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ className = "" }) => {
     return delayMap;
   };
 
-  // Create randomized delays for each line
-  const firstLineDelays = getRandomizedDelays(firstLineChars.length);
-  const secondLineDelays = getRandomizedDelays(secondLineChars.length);
+  // Create randomized delays for each line - now created inside useEffect to regenerate on each view
+  const [firstLineDelays, setFirstLineDelays] = React.useState(
+    getRandomizedDelays(firstLineChars.length)
+  );
+  const [secondLineDelays, setSecondLineDelays] = React.useState(
+    getRandomizedDelays(secondLineChars.length)
+  );
+
+  // Effect to handle viewport visibility
+  useEffect(() => {
+    if (isLogoInView) {
+      // Generate new random delays each time the logo comes into view
+      setFirstLineDelays(getRandomizedDelays(firstLineChars.length));
+      setSecondLineDelays(getRandomizedDelays(secondLineChars.length));
+      
+      // Start animations
+      firstLineControls.start("visible");
+      secondLineControls.start("visible");
+    } else {
+      // Reset animations when out of view
+      firstLineControls.start("exit");
+      secondLineControls.start("exit");
+    }
+  }, [isLogoInView, firstLineControls, secondLineControls, firstLineChars.length, secondLineChars.length]);
 
   return (
-    <div className={`w-full uppercase text-foreground ${className}`}>
+    <div 
+      ref={logoRef}
+      className={`w-full uppercase text-foreground ${className}`}
+    >
       <h1 className="font-serif text-2xl sm:text-3xl tracking-[1rem]">
         {firstLineChars.map((char, index) => (
           <motion.span
             key={`first-${index}`}
             custom={firstLineDelays.get(index)}
-            initial="hidden"
-            animate="visible"
             variants={charVariants}
+            initial="hidden"
+            animate={firstLineControls}
             style={{ display: char === " " ? "inline-block" : "inline-block" }}
           >
             {char === " " ? "\u00A0" : char}
@@ -81,9 +123,9 @@ const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ className = "" }) => {
           <motion.span
             key={`second-${index}`}
             custom={secondLineDelays.get(index)}
-            initial="hidden"
-            animate="visible"
             variants={charVariants}
+            initial="hidden"
+            animate={secondLineControls}
             style={{ display: char === " " ? "inline-block" : "inline-block" }}
           >
             {char === " " ? "\u00A0" : char}

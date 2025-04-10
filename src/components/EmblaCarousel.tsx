@@ -3,6 +3,7 @@
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { EmblaOptionsType } from 'embla-carousel';
+import Autoplay from "embla-carousel-autoplay";
 import {
     PrevButton,
     NextButton,
@@ -91,10 +92,10 @@ const EmblaCarousel: React.FC = () => {
         loop: true,
         align: "start",
         containScroll: "trimSnaps",
-        dragFree: true
+        dragFree: true,
     };
 
-    const [emblaRef, emblaApi] = useEmblaCarousel(options);
+    const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay({ playOnInit: true, delay: 5000 })]);
 
 
     const {
