@@ -22,9 +22,9 @@ type CardType = {
 // Define card data based on the design image
 const cardData: CardType[] = [
     {
-        title: "Cinematic Coverage",
+        title: "Artist-First Approach",
         subtitle: "",
-        description: "Your performance is captured through a refined, multi-angle approach that highlights tone, texture, and emotion—crafted for both intimacy and impact.",
+        description: "We're not here to brand you—we're here to support you. This is a space to show up fully, and to be seen and heard on your terms.",
         color: "bg-main-blue",
         dotColor: "bg-foreground"
     },
@@ -62,11 +62,10 @@ const cardData: CardType[] = [
         description: "Each session includes 2–3 hours of dedicated time for setup, rehearsal, and multiple takes—so you can explore, refine, and relax into the performance.",
         color: "bg-main-red",
         dotColor: "bg-foreground"
-    },
-    {
-        title: "Artist-First Approach",
+    },{
+        title: "Cinematic Coverage",
         subtitle: "",
-        description: "We're not here to brand you—we're here to support you. This is a space to show up fully, and to be seen and heard on your terms.",
+        description: "Your performance is captured through a refined, multi-angle approach that highlights tone, texture, and emotion—crafted for both intimacy and impact.",
         color: "bg-main-blue",
         dotColor: "bg-foreground"
     },
