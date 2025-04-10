@@ -15,9 +15,9 @@ export default function OfferPage({ }: Props) {
     const carouselRef = useRef(null);
     
     // Check if elements are in viewport
-    const isHeadingInView = useInView(headingRef, { once: false, amount: 0.5 });
+    const isHeadingInView = useInView(headingRef, { once: false, amount: 0 });
     const isDotInView = useInView(dotRef, { once: false, amount: 0.5 });
-    const isParagraphInView = useInView(paragraphRef, { once: false, amount: 0.5 });
+    const isParagraphInView = useInView(paragraphRef, { once: false, amount: 0 });
     const isCarouselInView = useInView(carouselRef, { once: false, amount: 0.2 });
     
     // Animation controls
