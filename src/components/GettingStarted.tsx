@@ -6,6 +6,11 @@ import { fadeInUp, textReveal } from './animation-variants';
 type Props = Record<string, never>;
 
 export default function GettingStarted({ }: Props) {
+
+
+    const pdfSrc = "https://d1jtup13qecgqg.cloudfront.net/assets/after-hours/After-Hours-Studio-Sessons-Welcome-Pack-Mar-2025.pdf";
+
+
     // Refs for detecting when elements are in view
     const paragraphRef = useRef(null);
     const questionRef = useRef(null);
@@ -83,28 +88,28 @@ export default function GettingStarted({ }: Props) {
                     <h4 className='font-black'>Want to perform with us?</h4>
                 </motion.div>
             </div>
-            <div className='flex w-full lg:w-3/4 h-max lg:h-full items-end justify-end font-serif text-foreground'>
-                <motion.h1
-                    ref={headingRef}
-                    className='pr-2 text-4xl md:text-7xl xl:text-9xl font-bold'
-                    variants={textReveal}
-                    initial="hidden"
-                    animate={headingControls}
-                    custom={2}
-                >
-                    get started
-                </motion.h1>
-                <div className='h-max self-end mb-2.5 md:mb-4 xl:mb-8'>
-                    <motion.div
-                        ref={dotRef}
-                        className={`dot w-5 h-5 md:w-6 md:h-6 rounded-full bg-foreground`}
-                        variants={fadeInUp}
+            <a  href={pdfSrc} target='_blank' className='flex w-full lg:w-3/4 h-max lg:h-full items-end justify-end font-serif text-foreground '>
+                    <motion.h1
+                        ref={headingRef}
+                        className='pr-2 text-4xl md:text-7xl xl:text-9xl font-bold hover:text-main-pink transition-colors'
+                        variants={textReveal}
                         initial="hidden"
-                        animate={dotControls}
-                        custom={3}
-                    ></motion.div>
-                </div>
-            </div>
+                        animate={headingControls}
+                        custom={2}
+                    >
+                        get started
+                    </motion.h1>
+                    <div className='h-max self-end mb-2.5 md:mb-4 xl:mb-8'>
+                        <motion.div
+                            ref={dotRef}
+                            className={`dot w-5 h-5 md:w-6 md:h-6 rounded-full bg-foreground hover:bg-main-pink transition-colors`}
+                            variants={fadeInUp}
+                            initial="hidden"
+                            animate={dotControls}
+                            custom={3}
+                        ></motion.div>
+                    </div>
+            </a>
         </div>
     )
 }

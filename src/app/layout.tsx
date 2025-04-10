@@ -1,7 +1,11 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Archivo, Geist_Mono } from "next/font/google";
 import { laoMN, pingfang } from "@/fonts";
 import "./globals.css";
+
+import Loading from "./loading";
+import Footer from "@/components/Footer";
 
 const archivo = Archivo({
   variable: "--font-rchivo-sans",
@@ -30,7 +34,8 @@ export default function RootLayout({
       <body
         className={`${archivo.variable} ${geistMono.variable} ${laoMN.variable} ${pingfang.variable} antialiased`}
       >
-        {children}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
+        <Footer />
       </body>
     </html>
   );
