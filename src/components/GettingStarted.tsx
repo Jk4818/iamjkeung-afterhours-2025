@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react'
 import { motion, useInView, useAnimation } from 'framer-motion';
 import { fadeInUp, textReveal } from './animation-variants';
 
-type Props = {}
+type Props = Record<string, never>;
 
 export default function GettingStarted({ }: Props) {
     // Refs for detecting when elements are in view
@@ -69,7 +69,7 @@ export default function GettingStarted({ }: Props) {
                     custom={0}
                 >
                     <p>
-                        We're a tight-knit collective of <span className='font-black'>creatives, producers, and music lovers</span> building a space where artists can feel seen, heard, and supported. After Hours is powered by <a className='font-black' href="iamjkeung.com" target='_blank'>iamjkeung.com</a>—a passion project rooted in storytelling, collaboration, and thoughtful production. We work closely with each artist to shape something meaningful, not just marketable.
+                        We&apos;re a tight-knit collective of <span className='font-black'>creatives, producers, and music lovers</span> building a space where artists can feel seen, heard, and supported. After Hours is powered by <a className='font-black' href="iamjkeung.com" target='_blank'>iamjkeung.com</a>—a passion project rooted in storytelling, collaboration, and thoughtful production. We work closely with each artist to shape something meaningful, not just marketable.
                     </p>
                 </motion.div>
                 <motion.div

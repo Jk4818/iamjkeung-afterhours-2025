@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import AnimatedText from './AnimatedText'
 
-type Props = {}
+type Props = Record<string, never>;
 
 export default function AboutPage({ }: Props) {
     const sectionRef = useRef<HTMLDivElement>(null);

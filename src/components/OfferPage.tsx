@@ -5,7 +5,7 @@ import EmblaCarousel from './EmblaCarousel';
 import { motion, useInView, useAnimation } from 'framer-motion';
 import { fadeInUp, textReveal } from './animation-variants';
 
-type Props = {};
+type Props = Record<string, never>;
 
 export default function OfferPage({ }: Props) {
     // Refs for detecting when elements are in view
@@ -93,7 +93,7 @@ export default function OfferPage({ }: Props) {
                     animate={paragraphControls}
                     custom={2}
                 >
-                    Performing with us isn't just about pressing record—it's about creating a moment that resonates. From setup to final delivery, we've designed this experience to honor your artistry and amplify your reach.
+                    Performing with us isn&apos;t just about pressing record—it&apos;s about creating a moment that resonates. From setup to final delivery, we&apos;ve designed this experience to honor your artistry and amplify your reach.
                 </motion.p>
             </div>
 

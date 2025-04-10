@@ -4,7 +4,7 @@ import { motion, useInView, useAnimation } from 'framer-motion';
 import { fadeInUp, textReveal } from './animation-variants';
 import AnimatedLogo from './AnimatedLogo'
 
-type Props = {}
+type Props = Record<string, never>;
 
 export default function LandingPage({ }: Props) {
 
